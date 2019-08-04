@@ -1,0 +1,90 @@
+[
+    {
+      "name": "SubWay",
+      "id":1,
+      "place": "Hitech City",
+      "rating": "4.0",
+      "ETA": 35,
+      "tags":["American", "Italian", "Chinese", "Indian"],
+      "photos": "images/subway.png" ,
+      "favorite":false     
+    }
+,
+    {
+        "name": "Punjabi Spice",
+        "id":2,
+        "place": "Metro City",
+        "rating": "4.1",
+        "ETA": 45,
+        "tags":[ "Punjabi", "Indian"],
+        "photos": "images/punjabiSpice.jpg",  
+        "favorite":false      
+      }
+,
+      {
+        "name": "Delhi Hut",
+        "id":3,
+        "place": "New City",
+        "rating": "3.8",
+        "ETA": 40,
+        "tags": ["Italian", "Punjabi", "Indian"],
+        "photos": "images/delhiHut.png",
+        "favorite":false        
+      }
+,
+      {
+        "name": "Continent Plaza",
+        "id":4,
+        "place": "Street One",
+        "rating": "4.3",
+        "ETA": 25,
+        "tags":["Continental", "Italian", "Chinese", "Indian"],
+        "photos": "images/continentPlaza.jpg",
+        "favorite":false        
+      }
+,
+      {
+        "name": "Shahi Khana",
+        "id":5,
+        "place": "Old City",
+        "rating": "4.4",
+        "ETA": 35,
+        "tags":["Indian"],
+        "photos": "images/shahiKhana.jpg",
+        "favorite":false        
+      }
+,
+      {
+        "name": "PizzaHut",
+        "id":6,
+        "place": "Central Road",
+        "rating": "4.0",
+        "ETA": 30,
+        "tags":["American"],
+        "photos": "images/pizzaHut.jpg",
+        "favorite":false       
+      }
+,
+      {
+        "name": "KFC",
+        "id":7,
+        "place": "Hitech City",
+        "rating": "4.1",
+        "ETA": 32,
+        "tags":["American"],
+        "photos": "images/kfc.jpeg",
+        "favorite":false        
+      }
+,
+      {
+        "name": "Dominos",
+        "id":8,
+        "place": "Central Road",
+        "rating": "4.5",
+        "ETA": 30,
+        "tags":["American", "Italian"],
+        "photos": "images/dominos.png",
+        "favorite":false        
+      }
+
+]
