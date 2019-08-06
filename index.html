@@ -10,7 +10,30 @@
 
 </head>
 <body>
-   
+    <div id = "search">
+        <input type="text" id = 'searchInput' placeholder="type to search restaurant" onkeyup="searchHotel(this.value)"><i class="fa fa-search" aria-hidden="true"></i>
+
+    </div>
+
+    <select onchange="cuisineFilter(this.value)">
+        <option value="" disabled selected hidden>Filter by Cuisine</option>
+        <option value="American">American</option>
+        <option value="Italian">Italian</option>
+        <option value="Chinese">Chinese</option>
+        <option value="Indian">Indian</option>
+        <option value="Punjabi">Punjabi</option>
+      </select>
+
+      <select onchange="sort(this.value)">
+        <option value="" disabled selected hidden>Sort</option>
+        <option value="rating">By Rating</option>
+        <option value="ETA">By ETA</option>
+        <option value="favorite">By Favorite</option>
+      </select>
+
+      <button class="fa fa-refresh" id = "refresh" onclick="refresh()"></button>
+
+
     <section id="content">
        
     </section>

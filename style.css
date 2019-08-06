@@ -2,6 +2,33 @@
     box-sizing: border-box;
 }
 
+#search{
+    padding-left: 45px;
+       
+}
+
+#refresh{
+    height: 25px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border: none;
+    border-radius: 50px;
+}
+.fa-search{
+    content: "\f002";
+    position: relative;
+    left: -20px;
+    color: forestgreen;
+}
+
+#searchInput{
+    width: 250px;
+    border-radius: 5px;
+    height: 25px;
+    border: solid 1px grey;
+    padding: 5px;
+}
 #content{
     display: flex;
     flex-wrap: wrap;
