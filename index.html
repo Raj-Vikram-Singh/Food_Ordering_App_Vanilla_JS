@@ -15,7 +15,7 @@
 
     </div>
 
-    <select onchange="cuisineFilter(this.value)">
+    <select onchange="cuisineFilter(this.value)" id = 'cuisine'>
         <option value="" disabled selected hidden>Filter by Cuisine</option>
         <option value="American">American</option>
         <option value="Italian">Italian</option>
@@ -24,7 +24,7 @@
         <option value="Punjabi">Punjabi</option>
       </select>
 
-      <select onchange="sort(this.value)">
+      <select onchange="sort(this.value)" id = 'sort'>
         <option value="" disabled selected hidden>Sort</option>
         <option value="rating">By Rating</option>
         <option value="ETA">By ETA</option>

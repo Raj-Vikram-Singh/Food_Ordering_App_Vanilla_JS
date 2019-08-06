@@ -1,5 +1,7 @@
 
 const content = document.getElementById("content");
+const cuisine = document.getElementById('cuisine');
+const sortDrpDwn = document.getElementById('sort');
 const _url = '/mockData.json' ;
 
 const fav = "fa-heart";
@@ -8,6 +10,8 @@ let favClass;
 
 let jsonData = [];
 let favoriteList=[];
+let cuisineFilteredList=[];
+let sortByLabelList = [];
 
 
 function getDataService(){
@@ -50,18 +54,12 @@ function markAsFavorite(element){
          for(i=0; i< jsonData.length; i++)
          if( jsonData[i].id == element.parentNode.id){
 
-             jsonData[i].favorite = jsonData[i].favorite ? false :true;            
-
-            //  document.getElementById(elementId).querySelector(".heart").classList.toggle(fav);
-            //  document.getElementById(elementId).querySelector(".heart").classList.toggle(notFav);
+            jsonData[i].favorite = jsonData[i].favorite ? false :true;            
             element.classList.toggle(fav);
             element.classList.toggle(notFav);
              
              setLocalStorage(jsonData);
-
-             return;
-            //  break;
-           
+             return;          
          }
    
 }
@@ -70,9 +68,8 @@ function markAsFavorite(element){
 content.addEventListener('click', function(event){
     
     let element = event.target;
-    let elementId;
+   
     if(element.title ==="heart"){
-      //  elementId= element.parentNode.id;
         markAsFavorite(element);
     }  
 });
@@ -94,36 +91,49 @@ content.addEventListener('click', function(event){
 
  function searchHotel(input){
 
-    let filteredList=[];
+    cuisine.selectedIndex = 0;
+    sortDrpDwn.selectedIndex=0;
+    cuisineFilteredList=[];
+    sortByLabelList = [];
 
-   
+    let filteredList=[];
+    
     filteredList = jsonData.filter(item => item.name.toUpperCase().includes(input.toUpperCase()) );
     document.querySelectorAll('.restaurant').forEach(function(el) {
         el.style.display = 'none';
      });
 
-     filteredList.forEach(item =>{
-        document.getElementById(item.id).style.display = "block";
-     });
+     renderView(filteredList);
 
  }
 
  function cuisineFilter(input){
-    let filteredList=[];
-    filteredList = jsonData.filter(item => item.tags.includes(input) );
+
+    sortDrpDwn.selectedIndex = 0;
+    cuisineFilteredList=[];
+    cuisineFilteredList = jsonData.filter(item => item.tags.includes(input) );
     document.querySelectorAll('.restaurant').forEach(function(el) {
         el.style.display = 'none';
      });
-
-     filteredList.forEach(item =>{
-        document.getElementById(item.id).style.display = "block";
-     });
+   
+     if(document.getElementById("filterMessage")){
+        document.getElementById("filterMessage").style.display = "none"; 
+    }
+    renderView(cuisineFilteredList);
+    
+    
 
  }
 
  function sort(input){
     
-    
+    if(cuisineFilteredList[0]){
+        sortByLabelList = cuisineFilteredList;
+    }
+
+    else{
+        sortByLabelList = jsonData;
+    }
 
     if(document.getElementById("filterMessage")){
         document.getElementById("filterMessage").style.display = "none"; 
@@ -135,24 +145,24 @@ content.addEventListener('click', function(event){
 
      if(input === 'rating'){
 
-        jsonData = jsonData.sort((a,b) =>{
+        sortByLabelList = sortByLabelList.sort((a,b) =>{
            return b.rating - a.rating;
         });
 
-        renderView(jsonData);
+        renderView(sortByLabelList);
      }
 
      else if(input === 'ETA'){
-        jsonData = jsonData.sort((a,b) =>{
+        sortByLabelList = sortByLabelList.sort((a,b) =>{
             return a.ETA - b.ETA;
          });
 
-         renderView(jsonData);
+         renderView(sortByLabelList);
 
      }
 
     else if(input === 'favorite'){
-        favoriteList = jsonData.filter(item => item.favorite === true);
+        favoriteList = sortByLabelList.filter(item => item.favorite === true);
 
          if(!favoriteList[0]){
             content.insertAdjacentHTML("beforeend", "<div id = 'filterMessage'> There are no Favorites Restaurants saved</div>");

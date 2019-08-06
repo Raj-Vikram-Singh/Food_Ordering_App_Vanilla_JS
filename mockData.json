@@ -5,7 +5,7 @@
       "place": "Hitech City",
       "rating": "4.0",
       "ETA": 35,
-      "tags":["American", "Italian", "Chinese", "Indian"],
+      "tags":["American", "Italian", "Indian"],
       "photos": "images/subway.png" ,
       "favorite":false     
     }
