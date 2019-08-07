@@ -98,7 +98,7 @@ content.addEventListener('click', function(event){
 
     let filteredList=[];
     
-    filteredList = jsonData.filter(item => item.name.toUpperCase().includes(input.toUpperCase()) );
+    filteredList = jsonData.filter(item => item.name.toUpperCase().includes(input.trim().toUpperCase()) );
     document.querySelectorAll('.restaurant').forEach(function(el) {
         el.style.display = 'none';
      });
@@ -132,12 +132,12 @@ content.addEventListener('click', function(event){
     }
 
     else{
-        sortByLabelList = jsonData;
+        sortByLabelList = jsonData.slice(0);
     }
 
-    if(document.getElementById("filterMessage")){
-        document.getElementById("filterMessage").style.display = "none"; 
-    }
+    // if(document.getElementById("filterMessage")){
+    //     document.getElementById("filterMessage").style.display = "none"; 
+    // }
 
     document.querySelectorAll('.restaurant').forEach(function(el) {
         el.style.display = 'none';
