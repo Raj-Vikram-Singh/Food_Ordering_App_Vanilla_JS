@@ -13,7 +13,7 @@
     <header> <img src="/images/logo.png" id= 'logo'> <p>Welcome to the Vanilla JS Food Ordering App </p></header>
 
     <div id = "search">
-        <input type="text" id = 'searchInput' placeholder="type to search restaurant" onkeyup="searchHotel(this.value)"><i class="fa fa-search" aria-hidden="true"></i>
+        <input type="text" id = 'searchInput' placeholder="type to search restaurant" onkeyup="debouncedSearchFuncton(this.value)"><i class="fa fa-search" aria-hidden="true"></i>
 
    
     <select onchange="cuisineFilter(this.value)" id = 'cuisine'>
