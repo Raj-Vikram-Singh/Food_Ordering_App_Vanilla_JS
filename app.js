@@ -100,8 +100,13 @@ content.addEventListener('click', function(event){
     
     filteredList = jsonData.filter(item => item.name.toUpperCase().includes(input.trim().toUpperCase()) );
     document.querySelectorAll('.restaurant').forEach(function(el) {
-        el.style.display = 'none';
+        el.parentNode.removeChild(el);
      });
+
+     if(document.querySelectorAll(".filterMessage")[0]){
+        document.querySelectorAll('.filterMessage').forEach(function(el) {
+            el.parentNode.removeChild(el); });
+    }
 
      renderView(filteredList);
 
@@ -109,16 +114,19 @@ content.addEventListener('click', function(event){
 
  function cuisineFilter(input){
 
+    if(document.querySelectorAll(".filterMessage")[0]){
+        document.querySelectorAll('.filterMessage').forEach(function(el) {
+            el.parentNode.removeChild(el); });
+    }
+
     sortDrpDwn.selectedIndex = 0;
     cuisineFilteredList=[];
     cuisineFilteredList = jsonData.filter(item => item.tags.includes(input) );
     document.querySelectorAll('.restaurant').forEach(function(el) {
-        el.style.display = 'none';
+        el.parentNode.removeChild(el);
      });
    
-     if(document.getElementById("filterMessage")){
-        document.getElementById("filterMessage").style.display = "none"; 
-    }
+     
     renderView(cuisineFilteredList);
     
     
@@ -126,7 +134,12 @@ content.addEventListener('click', function(event){
  }
 
  function sort(input){
-    
+
+    if(document.querySelectorAll(".filterMessage")[0]){
+        document.querySelectorAll('.filterMessage').forEach(function(el) {
+            el.parentNode.removeChild(el); });
+    }
+
     if(cuisineFilteredList[0]){
         sortByLabelList = cuisineFilteredList;
     }
@@ -135,12 +148,8 @@ content.addEventListener('click', function(event){
         sortByLabelList = jsonData.slice(0);
     }
 
-    // if(document.getElementById("filterMessage")){
-    //     document.getElementById("filterMessage").style.display = "none"; 
-    // }
-
     document.querySelectorAll('.restaurant').forEach(function(el) {
-        el.style.display = 'none';
+        el.parentNode.removeChild(el);
      });
 
      if(input === 'rating'){
@@ -162,10 +171,12 @@ content.addEventListener('click', function(event){
      }
 
     else if(input === 'favorite'){
+        favoriteList =[];
         favoriteList = sortByLabelList.filter(item => item.favorite === true);
 
          if(!favoriteList[0]){
-            content.insertAdjacentHTML("beforeend", "<div id = 'filterMessage'> There are no Favorites Restaurants saved</div>");
+            
+            content.insertAdjacentHTML("beforeend", "<div class = 'filterMessage' style = 'padding-left: 12px; color: green;'> There are no favorite Restaurants saved</div>");
             return;
          }
 
