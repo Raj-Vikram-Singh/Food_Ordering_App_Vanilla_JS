@@ -121,7 +121,7 @@ content.addEventListener('click', function(event){
        return function(input){
 
         clearTimeout(timer);
-        setTimeout(heavyFunct, limit, input);
+        timer = setTimeout(heavyFunct, limit, input);
         
        };
 
